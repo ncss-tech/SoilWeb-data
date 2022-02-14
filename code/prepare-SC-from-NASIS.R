@@ -10,7 +10,7 @@ sc <- get_soilseries_from_NASIS()
 # remove edit history
 sc$soilseriesedithistory <- NULL
 
-write.csv(sc, file = gzfile('../files/SC-database.csv.gz'), row.names = FALSE)
+write.csv(sc, file = gzfile('files/SC-database.csv.gz'), row.names = FALSE)
 
 
 
