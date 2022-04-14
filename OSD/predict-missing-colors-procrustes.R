@@ -95,21 +95,20 @@ keep.idx <- which(z$dE00.o < 30)
 d2m <- procrustes(X = z[keep.idx, moist.vars], Y = z[keep.idx, dry.vars], scale = TRUE)
 m2d <- procrustes(X = z[keep.idx, dry.vars], Y = z[keep.idx, moist.vars], scale = TRUE)
 
-## optionally save
+## save
+save(d2m, m2d, file = 'models/procrustes-models.rda')
 
 
-# export for aqp::estimateSoilColor()
-
-
-
-dput(d2m$scale)
-dput(d2m$rotation)
-dput(d2m$translation)
-
-dput(m2d$scale)
-dput(m2d$rotation)
-dput(m2d$translation)
-
+## TODO: move this to aqp misc/ code
+# 
+# dput(d2m$scale)
+# dput(d2m$rotation)
+# dput(d2m$translation)
+# 
+# dput(m2d$scale)
+# dput(m2d$rotation)
+# dput(m2d$translation)
+# 
 
 
 # eval

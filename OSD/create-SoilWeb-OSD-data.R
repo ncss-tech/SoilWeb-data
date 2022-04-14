@@ -168,6 +168,8 @@ R.utils::gzip('fulltext-section-data.sql', overwrite = TRUE)
 ## fill missing colors
 source('predict-missing-colors-OLS.R')
 
+source('predict-missing-colors-procrustes.R')
+
 
 
 
