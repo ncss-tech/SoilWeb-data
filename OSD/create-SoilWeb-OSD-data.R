@@ -163,14 +163,12 @@ R.utils::gzip('fulltext-section-data.sql', overwrite = TRUE)
 
 
 
+## TODO: finish eval / comparison of both methods
+
 ## fill missing colors
 source('predict-missing-colors-OLS.R')
 
 
-## push files to soilweb
-## load tables
-## make sketches
-## make SDE figures
 
 
 
