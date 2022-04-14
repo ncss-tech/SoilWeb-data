@@ -32,9 +32,4 @@ bash export-tables.sh
 ## gzip for github
 gzip ../databases/*.csv
 
-## compute subgroup stats ~ 1 hour
-bash soilweb-acreage-by-subgroup.sh
-
-
-
 
