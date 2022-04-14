@@ -1,0 +1,25 @@
+s 
+
+ 2  Variables      24172  Observations
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+drainage 
+       n  missing distinct 
+   24118       54        8 
+
+lowest : excessively          moderately well      poorly               somewhat excessively somewhat poorly     
+highest: somewhat excessively somewhat poorly      subaqueous           very poorly          well                
+                                                                                                                                                             
+Value               excessively      moderately well               poorly somewhat excessively      somewhat poorly           subaqueous          very poorly
+Frequency                   495                 2701                 1854                 1310                 2127                   39                  878
+Proportion                0.021                0.112                0.077                0.054                0.088                0.002                0.036
+                               
+Value                      well
+Frequency                 14714
+Proportion                0.610
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+seriesname 
+       n  missing distinct 
+   24172        0    24172 
+
+lowest : AABAB  AABERG AAGARD AARON  AARUP , highest: ZYNBAR ZYPLAR ZYZYL  ZYZZI  ZYZZUG
+----------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,48 @@
+
+> # moist colors
+> print(mv.rf)
+
+Call:
+ randomForest(formula = moist_value ~ dry_value + dry_chroma +      dry_hue, data = d, na.action = na.omit) 
+               Type of random forest: regression
+                     Number of trees: 500
+No. of variables tried at each split: 1
+
+          Mean of squared residuals: 0.4125237
+                    % Var explained: 64.89
+
+> print(mc.rf)
+
+Call:
+ randomForest(formula = moist_chroma ~ dry_value + dry_chroma +      dry_hue, data = d, na.action = na.omit) 
+               Type of random forest: regression
+                     Number of trees: 500
+No. of variables tried at each split: 1
+
+          Mean of squared residuals: 0.4499212
+                    % Var explained: 70.54
+
+> # dry colors
+> print(dv.rf)
+
+Call:
+ randomForest(formula = dry_value ~ moist_value + moist_chroma +      moist_hue, data = d, na.action = na.omit) 
+               Type of random forest: regression
+                     Number of trees: 500
+No. of variables tried at each split: 1
+
+          Mean of squared residuals: 0.4787254
+                    % Var explained: 63.7
+
+> print(dc.rf)
+
+Call:
+ randomForest(formula = dry_chroma ~ moist_value + moist_chroma +      moist_hue, data = d, na.action = na.omit) 
+               Type of random forest: regression
+                     Number of trees: 500
+No. of variables tried at each split: 1
+
+          Mean of squared residuals: 0.4927643
+                    % Var explained: 68.26
+
+> sink()

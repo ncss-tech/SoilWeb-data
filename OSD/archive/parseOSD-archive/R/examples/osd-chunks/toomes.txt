@@ -1,0 +1,78 @@
+{
+  "sections": {
+    "BRIEF DESCRIPTION": ["The Toomes series consists of very shallow and shallow, well to somewhat excessively drained soils formed in material weathered from tuff breccia, basalt and andesite.  These soils are on ridges and plateaus. Slopes are 2 to 75 percent.  The mean annual precipitation is about 25 inches and the mean annual temperature is about 60 degrees F. "],
+    "TAXONOMIC CLASS": [": Loamy, mixed, superactive, thermic Lithic Haploxerepts"],
+    "TYPICAL PEDON": [":  Toomes gravelly loam-under annual grasses and forbs. (Colors are for dry soil unless otherwise stated)     A1--0 to 2 inches (0 to 5 cm); brown (7.5YR 5/4) gravelly loam, dark brown (7.5YR 3/4) moist; weak thin platy structure; slightly hard, friable, slightly sticky and slightly plastic; many very fine roots; many fine pores; subangular rock fragments 3 inches to 3 feet in diameter make up about 15 percent of the volume; slightly acid (pH 6.2); abrupt smooth boundary.  (1/2 to 2 inches thick)     A2--2 to 7 inches (5 to 18 cm); brown (7.5YR 4/4) gravelly loam, dark brown (7.5YR 3/4) moist; weak medium subangular blocky structure; slightly hard, friable, slightly sticky and slightly plastic; common very fine roots; common fine pores; subangular rock fragments 3 inches to 3 feet in diameter make up about 15 percent of the volume; moderately acid (pH 6.0); clear irregular boundary.  (4 to 9 inches thick)     Bw--7 to 15 inches (18 to 38 cm); reddish brown (5YR 4/4) gravelly loam, dark reddish brown (5YR 3/4) moist; weak medium subangular blocky structure; slightly hard, friable, slightly sticky and slightly plastic; common very fine roots; few fine pores; few thin clay films lining pores; subangular rock fragments 3 inches to 3 feet in diameter make up about 20 percent of the volume; slightly acid (pH 6.5); abrupt irregular boundary.  (0 to 10 inches thick)     R--15 to 24 inches (38 to 61 cm); volcanic breccia composed of angular and subangular basaltic rock fragments cemented together by light gray, fine textured, tuffaceous sediments; matrix and the fragments about equally hard. "],
+    "TYPE LOCATION": [":  Tehama County, California; west of Tuscan Buttes and east of Highway 36; NE 1/4 of section 19, T.28 N., R.2 W. 122 degrees 7 minutes 14.72 seconds west, 40 degrees 16 minutes 44.75 seconds north NAD83"],
+    "RANGE IN CHARACTERISTICS": [":  Depth to lithic contact of hard bedrock ranges from 4 to 20 inches.  Soil depths of less than 10 inches and more than 10 inches commonly occur irregularly over a linear distance of a few feet or less.  Dominantly the soil is more than 10 inches deep.  The mean annual soil temperature ranges from 60 to 65 degrees F. and usually the soil temperature does not go below 47 degrees F.  The soil is dry between a depth of 8 inches and the lithic contact in most years from May to October and moist in some or all parts from October or November until April or May.  Pebbles, cobbles and stones make up 10 to 35 percent of the volume.  Stones also occur on the surface of most pedons. Reaction is moderately acid to neutral.  Texture is loam, silt loam, or clay loam. The A horizon is 10YR 4/3, 4/4, 5/2, 5/3, 5/4, 6/2, 6/3, 6/4; 7.5YR 4/4, 5/4; 5YR 4/3, 4/4, 5/3 or 5/4.  Moist color is 10YR 3/3, 3/4, 4/2, 4/3, 7.5YR 3/2, 3/4, 4/4; or 5YR 3/4.  The redder hues are associated with basalt and the yellower hues are associated with tuff breccia.  Most pedons have a moist chroma of 4 or a moist value of 4 in some part of the upper 7 inches.  Pedons with moist value and moist chroma of 3.5 or less average less than 1 percent organic matter. Most of each pedon has a Bw or Bt horizon.  In the minor part of the pedon the B horizon is interrupted by bedrock close to the surface.  The B horizon is 10YR 5/4; 7.5YR 5/4, 6/4, or 5YR 4/4.  Moist color is 7.5YR 3/4, 4/4; or 5YR 3/4.  It has very few to common thin clay films or films may be lacking.  The clay increase from the A horizon to the B horizon is less than 3 percent. Some pedons or parts of some pedons have a thin C horizon just above the bedrock.  The color, texture and reaction are similar to the A horizon. "],
+    "COMPETING SERIES": [":  There are no other soils in this family.  Hambright, Hideaway, Millsholm and Temescal series are similar soils in other families.  Hambright soils have a mollic epipedon and are loamy- skeletal.  Hideaway, Millsholm and Temescal soils are 10 to 20 inches deep in all parts of each pedon and have less than 10 percent coarse fragments. "],
+    "GEOGRAPHIC SETTING": [":  Toomes soils are on gently sloping to very steep slopes at elevations of 150 to 4,000 feet.  They are on plateaus and ridges of volcanic flows and on foothills of volcanic uplands.  They formed in material weathered from tuff breccia and in some areas, from lava flows, basalt and andesite.  Rock outcrops and stones make up 5 to 50 percent of the surface area.  The climate is subhumid with hot, dry summers and cool, moist winters.  Mean annual precipitation is 16 to 40 inches.  Mean annual temperature is 58 to 62 degrees F; average January temperature is about 45 degrees F; and average July temperature is about 75 degrees F.  The frost-free season is 200 to 300 days. "],
+    "GEOGRAPHICALLY ASSOCIATED SOILS": [":  These are the Amador, Guenoc, Inks, Iron Mountain, Las Posas, Pentz, Supan and Tuscan soils.  Amador and Pentz soils have a paralithic contact.  Guenoc, Inks, Iron Mountain, Las Posas, Supan and Tuscan soils all have an argillic horizon. Tuscan soils are on fan remnants and have a duripan. "],
+    "DRAINAGE AND PERMEABILITY": [":  Well to somewhat excessively drained; medium to rapid runoff; moderate permeability. "],
+    "USE AND VEGETATION": [":  Used mainly for rangeland.  Vegetation is soft chess, filaree and other annual grasses and forbs with scattered blue oak, ceanothus and digger pine on north slopes. "],
+    "DISTRIBUTION AND EXTENT": [":  Primarily on volcanic plateaus along the eastern edge of the Sacramento Valley.  Also in scattered locations throughout California.  The soils are extensive in MLRA-18. MLRA SOIL SURVEY REGIONAL OFFICE (MO) RESPONSIBLE:  Davis, CaliforniaSERIES ESTABLISHED:  Tehama County, California, 1962. "],
+    "REMARKS": [":  The Toomes soils were formerly classified as Lithosols.  Soils excluded from the series concept and mapped as Toomes in Eastern Fresno Area are loamy-skeletal, mixed, thermic Lithic Xerorthents.  Those mapped in Glenn County Area are loamy-skeletal, mixed thermic Lithic Haploxerolls.  Soils mapped in Sonoma County are loamy-skeletal, mixed, thermic Lithic Xerorthents.  Properties of those soils mapped in Eastern Stanislaus Area where not considered in this revision because the soils are of minor extent (155ac.) SERIES ESTABLISHED:  Tehama County, California, 1962. MLRA SOIL SURVEY REGIONAL OFFICE (MO) RESPONSIBLE:  Davis, California"]
+  },
+  "section-indices": [5, 7, 8, 13, 14, 18, 23, 24, 33, 34, 35, 38, 37],
+  "site-data": [
+    {
+      "drainage": "well"
+    }
+  ],
+  "hz-data": [
+    {
+      "name": "A1",
+      "top": 0,
+      "bottom": 5,
+      "dry_hue": "7.5YR",
+      "dry_value": 5,
+      "dry_chroma": 4,
+      "moist_hue": "7.5YR",
+      "moist_value": 3,
+      "moist_chroma": 4,
+      "texture_class": "loam",
+      "cf_class": "gravelly",
+      "pH": 6.2,
+      "pH_class": "slightly acid",
+      "narrative": "    A1--0 to 2 inches (0 to 5 cm); brown (7.5YR 5/4) gravelly loam, dark brown (7.5YR 3/4) moist; weak thin platy structure; slightly hard, friable, slightly sticky and slightly plastic; many very fine roots; many fine pores; subangular rock fragments 3 inches to 3 feet in diameter make up about 15 percent of the volume; slightly acid (pH 6.2); abrupt smooth boundary.  (1/2 to 2 inches thick) "
+    },
+    {
+      "name": "A2",
+      "top": 5,
+      "bottom": 18,
+      "dry_hue": "7.5YR",
+      "dry_value": 4,
+      "dry_chroma": 4,
+      "moist_hue": "7.5YR",
+      "moist_value": 3,
+      "moist_chroma": 4,
+      "texture_class": "loam",
+      "cf_class": "gravelly",
+      "pH": 6,
+      "pH_class": "moderately acid",
+      "narrative": "    A2--2 to 7 inches (5 to 18 cm); brown (7.5YR 4/4) gravelly loam, dark brown (7.5YR 3/4) moist; weak medium subangular blocky structure; slightly hard, friable, slightly sticky and slightly plastic; common very fine roots; common fine pores; subangular rock fragments 3 inches to 3 feet in diameter make up about 15 percent of the volume; moderately acid (pH 6.0); clear irregular boundary.  (4 to 9 inches thick) "
+    },
+    {
+      "name": "Bw",
+      "top": 18,
+      "bottom": 38,
+      "dry_hue": "5YR",
+      "dry_value": 4,
+      "dry_chroma": 4,
+      "moist_hue": "5YR",
+      "moist_value": 3,
+      "moist_chroma": 4,
+      "texture_class": "loam",
+      "cf_class": "gravelly",
+      "pH": 6.5,
+      "pH_class": "slightly acid",
+      "narrative": "    Bw--7 to 15 inches (18 to 38 cm); reddish brown (5YR 4/4) gravelly loam, dark reddish brown (5YR 3/4) moist; weak medium subangular blocky structure; slightly hard, friable, slightly sticky and slightly plastic; common very fine roots; few fine pores; few thin clay films lining pores; subangular rock fragments 3 inches to 3 feet in diameter make up about 20 percent of the volume; slightly acid (pH 6.5); abrupt irregular boundary.  (0 to 10 inches thick) "
+    },
+    {
+      "name": "R",
+      "top": 38,
+      "bottom": 61,
+      "narrative": "    R--15 to 24 inches (38 to 61 cm); volcanic breccia composed of angular and subangular basaltic rock fragments cemented together by light gray, fine textured, tuffaceous sediments; matrix and the fragments about equally hard. "
+    }
+  ]
+} 

@@ -1,0 +1,115 @@
+{
+  "sections": {
+    "BRIEF DESCRIPTION": ["The Pardee series consists of shallow, well drained soils formed in mixed alluvium. These soils are on terrace remnants and eroded fan remnants on hills. Slopes are 0 to 30 percent. The mean annual precipitation is about 515 mm and the mean annual air temperature is about 17 degrees C."],
+    "TAXONOMIC CLASS": [": Loamy-skeletal, mixed, superactive, thermic Lithic Mollic Haploxeralfs"],
+    "TYPICAL PEDON": [": Pardee gravelly loam on a west-facing, 4 percent slope, under annual grasses and forbs with scattered blue oaks at an elevation of 137 meters. (Colors are for dry soil unless otherwise stated. When described on May 3, 1960, the soil was moist throughout.)     A1--0 to 5 cm; brown (7.5YR 5/3) gravelly loam, dark brown (7.5YR 3/4) moist; massive; slightly hard, friable, slightly sticky and slightly plastic; common very fine roots; many very fine interstitial and tubular pores; 10 percent mixed rounded indurated gravel, 5 percent mixed rounded indurated cobbles; slightly acid (pH 6.3); gradual smooth boundary. (5 to 18 cm thick)    A2--5 to 23 cm; brown (7.5YR 5/4) cobbly loam, dark brown (7.5YR 3/4) moist; massive; hard, friable, slightly sticky and plastic; common very fine roots; many very fine interstitial and tubular pores, 15 percent mixed rounded indurated gravel, 15 percent mixed rounded indurated cobbles; slightly acid (pH 6.3); gradual smooth boundary. (10 to 18 cm thick)    Bt1--23 to 36 cm; brown (7.5YR 5/4) very cobbly loam, reddish brown (5YR 4/4) moist; massive; hard, friable, slightly sticky and plastic; few very fine roots; many very fine, common fine, few medium tubular pores; few thin clay films in pores; 10 percent mixed rounded indurated gravel, 35 percent mixed rounded indurated cobbles; moderately acid (pH 6.0); gradual smooth boundary. (5 to 13 cm thick)    Bt2--36 to 43 cm; brown (7.5YR 5/4) extremely cobbly loam, reddish brown (5YR 4/4) moist; massive; hard, friable, slightly sticky and plastic; few very fine roots; many very fine and fine pores; few thin clay films in pores; 20 percent mixed rounded indurated gravel, 60 percent mixed rounded indurated cobbles; moderately acid (pH 5.8); abrupt wavy boundary. (8 to 15 cm thick)    2Bt3--43 to 46 cm; brown (7.5YR 5/3) very cobbly clay with flecks of light gray (10YR 7/2) weathered sand, brown (7.5YR 4/2) moist; massive; very hard, very firm, sticky and plastic; few very fine roots; common very fine tubular pores; thick continuous clay films on peds and lining pores; 5 percent mixed rounded indurated gravel, 35 percent mixed rounded indurated cobbles; strongly acid (pH 5.3); abrupt wavy boundary. (0 to 8 cm thick).    2R--46 to 104 cm; very pale brown (10YR 7/3), light brownish gray (10YR 6/2), light brownish gray (10YR 6/2), brownish yellow (10YR 6/6) and gray (5Y 5/1) consolidated andesitic conglomerate; moderately acid (pH 6.0)."],
+    "TYPE LOCATION": [": Amador County, California; 5.6 km (3.5 miles) northeast of Camanche and 2.6 km (1.6 miles) southwest of Buena Vista Peaks; about 1 km (0.6 mile) east of the intersection of Camanche Road and the Camanche Parkway North, about 0.5 km (0.3 miles) west and 0.2 km (0.1 mile) north of the southeast corner of sec. 25, T.5 N., R.9 E. USGS Topographic Quad: Ione, California. WGS84 38.2516670 latitude -120.9313889 longitude. UTM ZONE 10 681005 meters E 4235762 meters N NAD83."],
+    "RANGE IN CHARACTERISTICS": [": Soil temperature: Mean annual soil temperature is 17 to 19 degrees C. and remains above 8 degrees throughout the year. The difference between the mean summer and mean winter soil temperature is greater than 6 degrees C. These soils have a thermic temperature regime.Soil moisture: The moisture control section is dry in all parts from about May to October. The soils have a xeric moisture regime.Diagnostic features: Ochric epipedon thickness: 5 to 35 cmArgillic horizon thickness: 13 to 40 cmDepth to lithic contact: 25 to 50 cmParticle size control section weighted average:Clay content: 18 to 35 percentRock fragments: 35 to 60 percentOrganic matter: greater than 1 percent throughout the upper 10 cm. Reaction is strongly acid to slightly acid throughout.Base saturation (by sum of cations) ranges from 65 to 75 percent.A horizonHue: 7.5YR, 5YRValue: 4 to 6 dry; 3 moistChroma: 3 to 6 dry; 4 to 6 moistTexture: sandy loam or loamClay content: 8 to 18 percentRock fragments: 15 to 35 percentBt horizonHue: 7.5YR, 5YR, 2.5YRValue: 4 or 5 dry; 3 or 4 moistChroma: 3 to 6Texture: loam, clay loam or sandy clay loamClay content: 18 to 30 percentRock fragments: 15 to 80 percent2Bt horizon (where present)Hue: 7.5YR, 5YRValue: 4 or 5 dry; 3 or 4 moistChroma: 3 or 4 dry; 2 to 4 moistTexture: clayRock fragments: 35 to 80 percent"],
+    "COMPETING SERIES": [": These are the Priestgrade and Stineway soils. Stineway soils have a hue of 10YR, are neutral to moderately alkaline, and are formed in metamorphic rock. Priestgrade soils have rock fragments in the soil profile that are typically channers and flagstones and are formed in metasedimentary rock. "],
+    "GEOGRAPHIC SETTING": [": Pardee soils are on and the summit, shoulder, and backslope positions on terrace remnants, eroded fan remnants. Where there is mound and swale topography, Pardee soils occur on the mound positions. Slopes are 0 to 30 percent. They formed in dark metamorphic and quartzitic gravelly and cobbly alluvium from mixed sources overlying unrelated volcaniclastic or metamorphic bedrock. Elevation ranges from 35 to 320 meters. Climate is Mediterranean with hot, dry summers and cool, moist winters. Mean annual precipitation is 465 mm to 660 mm. The mean annual air temperature ranges from 16 to 17 degrees C. Mean January air temperature is about 8 degrees C, and mean July air temperature is 25 to 26 degrees C. The frost-free season ranges from 325 to 355 days."],
+    "GEOGRAPHICALLY ASSOCIATED SOILS": [": These are the Amador, Auburn, Corning, Pentz, Ranchoseco and Redding soils. Amador, Auburn and Pentz soils are on hillslopes and have less than 35 percent rock fragments in the control section. Corning and Redding soils are on similar positions and have less than 35 percent rock fragments, and more than 35 percent clay in the particle-size control section. Ranchoseco soils are less than 25 cm to a lithic contact and are in the swales between mounds."],
+    "DRAINAGE AND PERMEABILITY": [": Well drained. Moderately high saturated hydraulic conductivity throughout the soil. Saturated hydraulic conductivity of the bedrock is low to moderately high."],
+    "USE AND VEGETATION": [": Used primarily for rangeland. Vegetation is annual grasses and forbs with scattered blue oaks at higher elevations. Understory species include wild oat, bromes, soft chess, stork's bill, foxtail fescue, Mediterranean barley, and smooth cat's ear."],
+    "DISTRIBUTION AND EXTENT": [": Sierra Nevada Foothills of California; MLRA 18. These soils are moderately extensive.SOIL SURVEY REGIONAL OFFICE (SSRO) RESPONSIBLE: Davis, CaliforniaSERIES ESTABLISHED: Amador County, California 1963. Source of the name is Camp Pardee, an unincorporated community in California."],
+    "REMARKS": [": SERIES ESTABLISHED: Amador County, California 1963. Source of the name is Camp Pardee, an unincorporated community in California.SOIL SURVEY REGIONAL OFFICE (SSRO) RESPONSIBLE: Davis, California"]
+  },
+  "section-indices": [5, 7, 8, 15, 16, 49, 52, 53, 60, 61, 62, 65, 64],
+  "site-data": [
+    {
+      "drainage": "well"
+    }
+  ],
+  "hz-data": [
+    {
+      "name": "A1",
+      "top": 0,
+      "bottom": 5,
+      "dry_hue": "7.5YR",
+      "dry_value": 5,
+      "dry_chroma": 3,
+      "moist_hue": "7.5YR",
+      "moist_value": 3,
+      "moist_chroma": 4,
+      "texture_class": "loam",
+      "cf_class": "gravelly",
+      "pH": 6.3,
+      "pH_class": "slightly acid",
+      "narrative": "    A1--0 to 5 cm; brown (7.5YR 5/3) gravelly loam, dark brown (7.5YR 3/4) moist; massive; slightly hard, friable, slightly sticky and slightly plastic; common very fine roots; many very fine interstitial and tubular pores; 10 percent mixed rounded indurated gravel, 5 percent mixed rounded indurated cobbles; slightly acid (pH 6.3); gradual smooth boundary. (5 to 18 cm thick)"
+    },
+    {
+      "name": "A2",
+      "top": 5,
+      "bottom": 23,
+      "dry_hue": "7.5YR",
+      "dry_value": 5,
+      "dry_chroma": 4,
+      "moist_hue": "7.5YR",
+      "moist_value": 3,
+      "moist_chroma": 4,
+      "texture_class": "loam",
+      "cf_class": "cobbly",
+      "pH": 6.3,
+      "pH_class": "slightly acid",
+      "narrative": "    A2--5 to 23 cm; brown (7.5YR 5/4) cobbly loam, dark brown (7.5YR 3/4) moist; massive; hard, friable, slightly sticky and plastic; common very fine roots; many very fine interstitial and tubular pores, 15 percent mixed rounded indurated gravel, 15 percent mixed rounded indurated cobbles; slightly acid (pH 6.3); gradual smooth boundary. (10 to 18 cm thick)"
+    },
+    {
+      "name": "Bt1",
+      "top": 23,
+      "bottom": 36,
+      "dry_hue": "7.5YR",
+      "dry_value": 5,
+      "dry_chroma": 4,
+      "moist_hue": "5YR",
+      "moist_value": 4,
+      "moist_chroma": 4,
+      "texture_class": "loam",
+      "cf_class": "very cobbly",
+      "pH": 6,
+      "pH_class": "moderately acid",
+      "narrative": "    Bt1--23 to 36 cm; brown (7.5YR 5/4) very cobbly loam, reddish brown (5YR 4/4) moist; massive; hard, friable, slightly sticky and plastic; few very fine roots; many very fine, common fine, few medium tubular pores; few thin clay films in pores; 10 percent mixed rounded indurated gravel, 35 percent mixed rounded indurated cobbles; moderately acid (pH 6.0); gradual smooth boundary. (5 to 13 cm thick)"
+    },
+    {
+      "name": "Bt2",
+      "top": 36,
+      "bottom": 43,
+      "dry_hue": "7.5YR",
+      "dry_value": 5,
+      "dry_chroma": 4,
+      "moist_hue": "5YR",
+      "moist_value": 4,
+      "moist_chroma": 4,
+      "texture_class": "loam",
+      "cf_class": "extremely cobbly",
+      "pH": 5.8,
+      "pH_class": "moderately acid",
+      "narrative": "    Bt2--36 to 43 cm; brown (7.5YR 5/4) extremely cobbly loam, reddish brown (5YR 4/4) moist; massive; hard, friable, slightly sticky and plastic; few very fine roots; many very fine and fine pores; few thin clay films in pores; 20 percent mixed rounded indurated gravel, 60 percent mixed rounded indurated cobbles; moderately acid (pH 5.8); abrupt wavy boundary. (8 to 15 cm thick)"
+    },
+    {
+      "name": "2Bt3",
+      "top": 43,
+      "bottom": 46,
+      "dry_hue": "7.5YR",
+      "dry_value": 5,
+      "dry_chroma": 3,
+      "moist_hue": "7.5YR",
+      "moist_value": 4,
+      "moist_chroma": 2,
+      "texture_class": "clay",
+      "cf_class": "very cobbly",
+      "pH": 5.3,
+      "pH_class": "strongly acid",
+      "narrative": "    2Bt3--43 to 46 cm; brown (7.5YR 5/3) very cobbly clay with flecks of light gray (10YR 7/2) weathered sand, brown (7.5YR 4/2) moist; massive; very hard, very firm, sticky and plastic; few very fine roots; common very fine tubular pores; thick continuous clay films on peds and lining pores; 5 percent mixed rounded indurated gravel, 35 percent mixed rounded indurated cobbles; strongly acid (pH 5.3); abrupt wavy boundary. (0 to 8 cm thick)."
+    },
+    {
+      "name": "2R",
+      "top": 46,
+      "bottom": 104,
+      "dry_hue": "10YR",
+      "dry_value": 7,
+      "dry_chroma": 3,
+      "pH": 6,
+      "pH_class": "moderately acid",
+      "narrative": "    2R--46 to 104 cm; very pale brown (10YR 7/3), light brownish gray (10YR 6/2), light brownish gray (10YR 6/2), brownish yellow (10YR 6/6) and gray (5Y 5/1) consolidated andesitic conglomerate; moderately acid (pH 6.0)."
+    }
+  ]
+} 
