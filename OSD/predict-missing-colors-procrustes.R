@@ -10,7 +10,8 @@ library(farver)
 library(lattice)
 library(tactile)
 library(grid)
-
+library(igraph)
+library(sharpshootR)
 
 ## from OSDs
 d <- read.csv('parsed-data.csv.gz', stringsAsFactors=FALSE)
@@ -37,14 +38,31 @@ summary(z)
 # missing CIELAB due to bogus hues
 z <- na.omit(z)
 
+# convert to Munsell notation for colorContrast()
+z$dry_Munsell <- sprintf('%s %s/%s', z$dry_hue, z$dry_value, z$dry_chroma)
+z$moist_Munsell <- sprintf('%s %s/%s', z$moist_hue, z$moist_value, z$moist_chroma)
+
+# ~ 1 minute
+cc <- colorContrast(z$dry_Munsell, z$moist_Munsell)
+
+# double-check data are the same shape
+stopifnot(nrow(cc) == nrow(z))
+
+# copy dE00 over from contrast class eval
+z$dE00.o <- cc$dE00
+
+# used later for color comparisons
 moist.vars <- c('moist.L', 'moist.A', 'moist.B')
 dry.vars <- c('dry.L', 'dry.A', 'dry.B')
 
-# compute dE00: dry -- moist
-z$dE00.o <- NA
-for(i in 1:nrow(z)) {
-  z$dE00.o[i] <- compare_colour(from = z[i, moist.vars], to = z[i, dry.vars], from_space = 'lab', to_space = 'lab', white_from = 'd65', white_to = 'd65', method = 'CIE2000')
-}
+# # compute dE00: dry -- moist
+# z$dE00.o <- NA
+# for(i in 1:nrow(z)) {
+#   z$dE00.o[i] <- compare_colour(from = z[i, moist.vars], to = z[i, dry.vars], from_space = 'lab', to_space = 'lab', white_from = 'd65', white_to = 'd65', method = 'CIE2000')
+# }
+
+
+ragg::agg_png(filename = 'figures/dry-vs-moist-colors-dE00.png', width = 1000, height = 500, scaling = 1.5)
 
 # expected range + likely mistakes
 histogram(
@@ -53,15 +71,34 @@ histogram(
   par.settings = tactile.theme(), 
   scales = list(x = list(tick.number = 16)), 
   xlab = 'CIE2000 Color Contrast Metric', 
-  main = 'Perceptual Differences: Moist / Dry Soil Colors', 
+  main = 'Perceptual Differences: Moist \u2194 Dry Soil Colors', 
   sub = 'Official Series Descriptions, ~78k horizons',
   panel = function(...) {
     panel.grid(-1, -1)
     panel.histogram(...)
+    
     grid.text('approximately\n1-unit change\nMunsell value', x = unit(7, units = 'native'), y = unit(0.85, 'npc'), hjust = 0.5, gp = gpar(cex = 0.75))
-    grid.text('approximately\n2-unit change\nMunsell value', x = unit(17, units = 'native'), y = unit(0.85, 'npc'), hjust = 0.5, gp = gpar(cex = 0.75))
+    
+    grid.text('approximately\n2-unit change\nMunsell value', x = unit(16.5, units = 'native'), y = unit(0.85, 'npc'), hjust = 0.5, gp = gpar(cex = 0.75))
+    
+    grid.text('approximately\n3-unit change\nMunsell value', x = unit(28, units = 'native'), y = unit(0.3, 'npc'), hjust = 0.5, gp = gpar(cex = 0.75))
+    
+    grid.text('truncated at dE00 < 35\nlikely parsing errors', x = unit(36, units = 'native'), y = unit(0.66, 'npc'), hjust = 1, gp = gpar(cex = 0.66))
+    
+    grid.text('\u2190', x = unit(35, units = 'native'), y = unit(0.55, 'npc'), hjust = 1, gp = gpar(cex = 2))
 })
 
+dev.off()
+
+
+
+sort(table(cc$dH), decreasing = TRUE)
+sort(table(cc$dV), decreasing = TRUE)
+sort(table(cc$dC), decreasing = TRUE)
+
+dotplot(sort(table(cc$dH), decreasing = TRUE))
+dotplot(sort(table(cc$dV), decreasing = TRUE))
+dotplot(sort(table(cc$dC), decreasing = TRUE))
 
 colorContrast('10YR 2/3', '10YR 4/3')
 
@@ -76,15 +113,105 @@ boxplot(dE00.o ~ moist_hue != dry_hue, data = z, horizontal = TRUE)
 z$dry.col <- munsell2rgb(z$dry_hue, z$dry_value, z$dry_chroma)
 z$moist.col <- munsell2rgb(z$moist_hue, z$moist_value, z$moist_chroma)
 
+
+## subset: pair-wise distances are expensive
 z.sub <- z[sample(1:nrow(z), size = 500), ]
 
-plot(moist.L ~ moist.A, data = z.sub, las = 1, pch = 16, col = z.sub$moist.col, cex = 2, ylim = c(0, 95), xlim = c(-5, 25))
-points(dry.L ~ dry.A, data = z.sub, las = 1, pch = 15, col = z.sub$dry.col, cex = 2)
+# stack
+g <- list(
+  data.frame(
+    state = 'dry',
+    z.sub[, c(dry.vars, 'dry.col')]
+  ),
+  data.frame(
+    state = 'moist',
+    z.sub[, c(moist.vars, 'moist.col')]
+  )
+)
 
-points(mean(z.sub$moist.A), mean(z.sub$moist.L), pch = 16, cex = 1.5)
-points(mean(z.sub$dry.A), mean(z.sub$dry.L), pch = 15, cex = 1.5)
+names(g[[1]]) <- c('state', 'L', 'A', 'B', 'color')
+names(g[[2]]) <- c('state', 'L', 'A', 'B', 'color')
+
+g <- do.call('rbind', g)
+g$state <- factor(g$state)
+
+head(g)
+
+## this is expensive: ~ 2 minutes for 5k records
+# distances are based on CIE2000 color comparison
+# note: single argument -> all pair-wise distances
+# output is transposed relative to `dist` object
+d <- farver::compare_colour(g[, c('L', 'A', 'B')], from_space='lab', to_space = 'lab', method='CIE2000')
+d <- as.dist(t(d))
+
+# classic multidimensional scaling (PCoA)
+# relatively fast
+# this is fairly robust to 0 distances
+# use list. = TRUE to get GOF
+mds <- cmdscale(d)
+
+# # too expensive, but possibly more flexible
+# # there are a lot of 0-distances
+# mds <- metaMDS(d, autotransform = FALSE)
+# mds <- mds$points
 
 
+# split dry/moist for plotting
+mds.state <- split(data.frame(mds), g$state)
+
+# simple plot, no indication of density
+par(mar=c(1,1,3,1), bg = 'black', fg = 'white')
+plot(mds[, 1:2], type = 'n', axes = FALSE)
+# grid(nx = 10, ny = 10, col = par('fg'))
+points(mds[, 1:2], col = scales::alpha(g$color, 0.5), cex = 5, pch = c(15, 16)[as.numeric(g$state)])
+
+arrows(x0 = mds.state$dry$X1, y0 = mds.state$dry$X2, x1 = mds.state$moist$X1, y1 = mds.state$moist$X2, length = 0.1, col = scales::alpha('green', 0.125))
+
+legend('top', legend = c('dry', 'moist'), pch = 0:1, pt.cex = 3, horiz = TRUE, bty = 'n', cex = 1)
+
+box()
+
+
+
+
+
+##
+##
+##
+
+ig <- graph_from_data_frame(z.sub[, c('dry_Munsell', 'moist_Munsell', 'dE00.o')], directed = TRUE)
+
+V(ig)$color <- parseMunsell(V(ig)$name)
+V(ig)$size <- sqrt(degree(ig)) * 3
+E(ig)$weight <- 1/E(ig)$dE00.o
+
+par(mar = c(0, 0, 0, 0), bg = 'black', fg = 'white')
+
+plot(ig, edge.arrow.size = 0.5, vertex.label.cex = 0.75, vertex.label.family = "sans", vertex.label.color = invertLabelColor(V(ig)$color), layout = layout_with_graphopt)
+
+set.seed(101010)
+plot(ig, edge.arrow.size = 0.33, layout = layout_with_fr(ig, weights = 1/E(ig)$dE00.o), vertex.label = NA, edge.color = scales::alpha('white', 0.5))
+
+
+ig <- graph_from_data_frame(z.sub[, c('dry_Munsell', 'moist_Munsell', 'dE00.o')], directed = FALSE)
+
+V(ig)$color <- parseMunsell(V(ig)$name)
+V(ig)$size <- sqrt(degree(ig)) * 3
+E(ig)$weight <- 1/E(ig)$dE00.o
+
+par(mar = c(0, 0, 0, 0), bg = 'black', fg = 'white')
+
+plot(ig, edge.arrow.size = 0.33, layout = layout_on_grid, vertex.label = NA, edge.color = scales::alpha('white', 0.125))
+
+plot(ig, edge.arrow.size = 0.33, layout = layout_on_sphere, edge.color = scales::alpha('white', 0.125), vertex.label = NA)
+
+ragg::agg_png(filename = 'figures/dry-vs-moist-colors-graph-grid.png', width = 2000, height = 2000, scaling = 3)
+
+par(mar = c(0, 0, 0, 0), bg = 'black', fg = 'white')
+
+plot(ig, edge.arrow.size = 0.33, layout = layout_on_grid, edge.color = scales::alpha('white', 0.125), vertex.label.cex = 0.5, vertex.label.family = "sans", vertex.label.color = invertLabelColor(V(ig)$color), vertex.label.dist = 0.5, vertex.label.degree = pi/2)
+
+dev.off()
 
 
 ## fit rotation, translation, scale
