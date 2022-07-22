@@ -115,7 +115,11 @@ z$moist.col <- munsell2rgb(z$moist_hue, z$moist_value, z$moist_chroma)
 
 
 ## subset: pair-wise distances are expensive
-z.sub <- z[sample(1:nrow(z), size = 500), ]
+# 1k records should be sufficient
+# 5k records will thrash cmdscale() 
+n.sub <- 1000
+set.seed(101010)
+z.sub <- z[sample(1:nrow(z), size = n.sub), ]
 
 # stack
 g <- list(
@@ -139,16 +143,28 @@ head(g)
 
 ## this is expensive: ~ 2 minutes for 5k records
 # distances are based on CIE2000 color comparison
-# note: single argument -> all pair-wise distances
-# output is transposed relative to `dist` object
-d <- farver::compare_colour(g[, c('L', 'A', 'B')], from_space='lab', to_space = 'lab', method='CIE2000')
-d <- as.dist(t(d))
+d <- farver::compare_colour(g[, c('L', 'A', 'B')], g[, c('L', 'A', 'B')], from_space='lab', to_space = 'lab', method='CIE2000')
+
+# full matrix -> min. required for distance
+d <- as.dist(d)
 
 # classic multidimensional scaling (PCoA)
-# relatively fast
+# don't use > 1k records
 # this is fairly robust to 0 distances
 # use list. = TRUE to get GOF
 mds <- cmdscale(d)
+
+# rotate 270 degrees CCW
+# to roughly follow Munsell color book page layout
+# column-order
+rot.mat <- matrix(
+  c(0, 1,
+    -1, 0),
+  byrow = FALSE, ncol = 2
+)
+
+# apply transformation
+mds <- mds %*% rot.mat
 
 # # too expensive, but possibly more flexible
 # # there are a lot of 0-distances
@@ -159,19 +175,30 @@ mds <- cmdscale(d)
 # split dry/moist for plotting
 mds.state <- split(data.frame(mds), g$state)
 
-# simple plot, no indication of density
+
+
+# simple plot, density ~ transparency
+ragg::agg_png(file = 'figures/MDS-subset-dry-vs-moist-colors.png', width = 1000, height = 1000, scaling = 1.5)
+
 par(mar=c(1,1,3,1), bg = 'black', fg = 'white')
 plot(mds[, 1:2], type = 'n', axes = FALSE)
-# grid(nx = 10, ny = 10, col = par('fg'))
-points(mds[, 1:2], col = scales::alpha(g$color, 0.5), cex = 5, pch = c(15, 16)[as.numeric(g$state)])
+
+grid(nx = 10, ny = 10, col = par('fg'))
+# abline(h = 0, v = 0, col = par('fg'), lty = 3)
+
+points(mds[, 1:2], col = scales::alpha(g$color, 0.25), cex = 5, pch = c(15, 16)[as.numeric(g$state)])
 
 arrows(x0 = mds.state$dry$X1, y0 = mds.state$dry$X2, x1 = mds.state$moist$X1, y1 = mds.state$moist$X2, length = 0.1, col = scales::alpha('green', 0.125))
 
-legend('top', legend = c('dry', 'moist'), pch = 0:1, pt.cex = 3, horiz = TRUE, bty = 'n', cex = 1)
+legend('bottomright', legend = c('dry', 'moist'), pch = 0:1, pt.cex = 3, horiz = TRUE, cex = 1.5, inset = c(0.01, 0.01), box.col = par('bg'))
+
+mtext(text = expression(~Delta*E['00']%->%PCoA%->%270*degree~CCW~rotation), side = 1, adj = 0, line = -2, cex = 1.5)
 
 box()
 
+title(sprintf('Dry \u2192 Moist Soil Color, OSDs, %s samples', n.sub), line = 1, col.main = par('fg'), cex.main = 1.5)
 
+dev.off()
 
 
 
@@ -318,10 +345,12 @@ p2 <- histogram(
 
 
 
+ragg::agg_png(filename = 'figures/dE00-distribution-obs-vs-pred.png', width = 1000, height = 700, scaling = 1.25)
+
 print(p1, more = TRUE, split = c(1, 1, 1, 2))
 print(p2, more = FALSE, split = c(1, 2, 1, 2))
 
-
+dev.off()
 
 # chip accuracy
 z$m.dry.o <- sprintf("%s %s/%s", z$dry_hue, z$dry_value, z$dry_chroma)
@@ -354,4 +383,7 @@ m2 <- sprintf("%s %s/%s", p.m$hue, p.m$value, p.m$chroma)
 colorContrastPlot(m1, m2, labels = c('source', 'estimate'), col.cex = 0.75)
 
 
+## procrustes plots
 
+plot(d2m, type = 'n')
+lines(d2m, type = 'arrows', len = 0.1, col = scales::alpha('royalblue', 0.1))
