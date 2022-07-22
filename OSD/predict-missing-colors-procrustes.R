@@ -62,7 +62,7 @@ dry.vars <- c('dry.L', 'dry.A', 'dry.B')
 # }
 
 
-ragg::agg_png(filename = 'figures/dry-vs-moist-colors-dE00.png', width = 1000, height = 500, scaling = 1.5)
+ragg::agg_png(filename = 'figures/dry-vs-moist-colors-dE00.png', width = 1500, height = 750, scaling = 2.5)
 
 # expected range + likely mistakes
 histogram(
@@ -79,9 +79,9 @@ histogram(
     
     grid.text('approximately\n1-unit change\nMunsell value', x = unit(7, units = 'native'), y = unit(0.85, 'npc'), hjust = 0.5, gp = gpar(cex = 0.75))
     
-    grid.text('approximately\n2-unit change\nMunsell value', x = unit(16.5, units = 'native'), y = unit(0.85, 'npc'), hjust = 0.5, gp = gpar(cex = 0.75))
+    grid.text('approximately\n2-unit change\nMunsell value', x = unit(16, units = 'native'), y = unit(0.85, 'npc'), hjust = 0.5, gp = gpar(cex = 0.75))
     
-    grid.text('approximately\n3-unit change\nMunsell value', x = unit(28, units = 'native'), y = unit(0.3, 'npc'), hjust = 0.5, gp = gpar(cex = 0.75))
+    grid.text('approximately\n3-unit change\nMunsell value', x = unit(27, units = 'native'), y = unit(0.3, 'npc'), hjust = 0.5, gp = gpar(cex = 0.75))
     
     grid.text('truncated at dE00 < 35\nlikely parsing errors', x = unit(36, units = 'native'), y = unit(0.66, 'npc'), hjust = 1, gp = gpar(cex = 0.66))
     
@@ -252,6 +252,22 @@ m2d <- procrustes(X = z[keep.idx, dry.vars], Y = z[keep.idx, moist.vars], scale 
 ## save
 save(d2m, m2d, file = 'models/procrustes-models.rda')
 
+## TODO: still working on these, hard to interpret
+## plots to explain procrustes fit
+
+# X: target
+# Y: matrix to be rotated
+
+ragg::agg_png(filename = 'figures/prc-dry-to-moist-figure.png', width = 1000, height = 600, scaling = 1.5)
+
+plot(d2m, type = 'n', choices = 1:2)
+points(d2m, choices = 1:2, display = 'target', pch = 16, cex = 2, col = z$moist.col[keep.idx])
+points(d2m, choices = 1:2, display = 'rotated', pch = 16, cex = 2, col = z$dry.col[keep.idx])
+lines(d2m, type = 'arrows', len = 0.1, col = scales::alpha('green', 0.05))
+
+dev.off()
+
+
 
 ## TODO: move this to aqp misc/ code
 # 
@@ -345,7 +361,7 @@ p2 <- histogram(
 
 
 
-ragg::agg_png(filename = 'figures/dE00-distribution-obs-vs-pred.png', width = 1000, height = 700, scaling = 1.25)
+ragg::agg_png(filename = 'figures/dE00-distribution-obs-vs-pred.png', width = 1000, height = 1000, scaling = 2)
 
 print(p1, more = TRUE, split = c(1, 1, 1, 2))
 print(p2, more = FALSE, split = c(1, 2, 1, 2))
@@ -382,8 +398,3 @@ m2 <- sprintf("%s %s/%s", p.m$hue, p.m$value, p.m$chroma)
 
 colorContrastPlot(m1, m2, labels = c('source', 'estimate'), col.cex = 0.75)
 
-
-## procrustes plots
-
-plot(d2m, type = 'n')
-lines(d2m, type = 'arrows', len = 0.1, col = scales::alpha('royalblue', 0.1))
