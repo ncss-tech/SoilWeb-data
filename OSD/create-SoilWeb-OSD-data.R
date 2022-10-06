@@ -56,7 +56,7 @@ for(i in sc[idx]) {
   # important notes:
   # * some series in SC may not exist here
   # * these files may contain data.frames of varying structure
-  osddf <- get_OSD(i, result = 'json', base_url = osd.path)
+  osddf <- get_OSD(i, result = 'json', base_url = osd.path, fix_ocr_errors = TRUE)
   
   # typical pedon section, already broken into pieces
   hz <- osddf[['HORIZONS']][[1]]
@@ -158,6 +158,7 @@ write.csv(s, file = gzfile('parsed-site-data.csv.gz'), row.names = FALSE)
 ## re-make section fulltext table + INSERT statements
 # 6.8 minutes
 system.time(.makeFullTextSectionsTable(fulltext.records))
+
 # gzip
 R.utils::gzip('fulltext-section-data.sql', overwrite = TRUE)
 
