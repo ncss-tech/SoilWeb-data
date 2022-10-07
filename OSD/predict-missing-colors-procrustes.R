@@ -65,28 +65,30 @@ dry.vars <- c('dry.L', 'dry.A', 'dry.B')
 ragg::agg_png(filename = 'figures/dry-vs-moist-colors-dE00.png', width = 1500, height = 750, scaling = 2.5)
 
 # expected range + likely mistakes
-histogram(
-  z$dE00.o[z$dE00.o < 35], 
-  breaks = 50, 
-  par.settings = tactile.theme(), 
-  scales = list(x = list(tick.number = 16)), 
-  xlab = 'CIE2000 Color Contrast Metric', 
-  main = 'Perceptual Differences: Moist \u2194 Dry Soil Colors', 
-  sub = 'Official Series Descriptions, ~78k horizons',
-  panel = function(...) {
-    panel.grid(-1, -1)
-    panel.histogram(...)
-    
-    grid.text('approximately\n1-unit change\nMunsell value', x = unit(7, units = 'native'), y = unit(0.85, 'npc'), hjust = 0.5, gp = gpar(cex = 0.75))
-    
-    grid.text('approximately\n2-unit change\nMunsell value', x = unit(16, units = 'native'), y = unit(0.85, 'npc'), hjust = 0.5, gp = gpar(cex = 0.75))
-    
-    grid.text('approximately\n3-unit change\nMunsell value', x = unit(27, units = 'native'), y = unit(0.3, 'npc'), hjust = 0.5, gp = gpar(cex = 0.75))
-    
-    grid.text('truncated at dE00 < 35\nlikely parsing errors', x = unit(36, units = 'native'), y = unit(0.66, 'npc'), hjust = 1, gp = gpar(cex = 0.66))
-    
-    grid.text('\u2190', x = unit(35, units = 'native'), y = unit(0.55, 'npc'), hjust = 1, gp = gpar(cex = 2))
-})
+print(
+  histogram(
+    z$dE00.o[z$dE00.o < 35], 
+    breaks = 50, 
+    par.settings = tactile.theme(), 
+    scales = list(x = list(tick.number = 16)), 
+    xlab = 'CIE2000 Color Contrast Metric', 
+    main = 'Perceptual Differences: Moist \u2194 Dry Soil Colors', 
+    sub = 'Official Series Descriptions, ~80k horizons',
+    panel = function(...) {
+      panel.grid(-1, -1)
+      panel.histogram(...)
+      
+      grid.text('approximately\n1-unit change\nMunsell value', x = unit(7, units = 'native'), y = unit(0.85, 'npc'), hjust = 0.5, gp = gpar(cex = 0.75))
+      
+      grid.text('approximately\n2-unit change\nMunsell value', x = unit(16, units = 'native'), y = unit(0.85, 'npc'), hjust = 0.5, gp = gpar(cex = 0.75))
+      
+      grid.text('approximately\n3-unit change\nMunsell value', x = unit(27, units = 'native'), y = unit(0.3, 'npc'), hjust = 0.5, gp = gpar(cex = 0.75))
+      
+      grid.text('truncated at dE00 < 35\nlikely parsing errors', x = unit(36, units = 'native'), y = unit(0.66, 'npc'), hjust = 1, gp = gpar(cex = 0.66))
+      
+      grid.text('\u2190', x = unit(35, units = 'native'), y = unit(0.55, 'npc'), hjust = 1, gp = gpar(cex = 2))
+    })
+)
 
 dev.off()
 
