@@ -159,7 +159,7 @@ write.csv(hz, file = gzfile('parsed-data.csv.gz'), row.names = FALSE)
 write.csv(s, file = gzfile('parsed-site-data.csv.gz'), row.names = FALSE)
 
 ## re-make section fulltext table + INSERT statements
-# 6.8 minutes
+# 11 seconds
 system.time(.makeFullTextSectionsTable(fulltext.records))
 
 # gzip
@@ -169,8 +169,15 @@ R.utils::gzip('fulltext-section-data.sql', overwrite = TRUE)
 
 ## TODO: finish eval / comparison of both methods
 
+rm(list = ls(all.names = TRUE))
+gc(reset = TRUE)
+
 ## fill missing colors
 source('predict-missing-colors-OLS.R')
+
+
+rm(list = ls(all.names = TRUE))
+gc(reset = TRUE)
 
 source('predict-missing-colors-procrustes.R')
 
