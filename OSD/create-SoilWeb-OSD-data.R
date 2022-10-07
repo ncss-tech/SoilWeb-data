@@ -40,7 +40,10 @@ fulltext.records <- list()
 section.names <- c("OVERVIEW", "TAXONOMIC.CLASS", "TYPICAL.PEDON", "TYPE.LOCATION", "RANGE.IN.CHARACTERISTICS", "COMPETING.SERIES", "GEOGRAPHIC.SETTING", "GEOGRAPHICALLY.ASSOCIATED.SOILS", "DRAINAGE.AND.PERMEABILITY", "USE.AND.VEGETATION", "DISTRIBUTION.AND.EXTENT", "REMARKS", "ORIGIN", "ADDITIONAL.DATA")
 
 
-## TODO: convert this to furrr / parallel processing
+## TODO: 
+# * convert this to furrr / parallel processing
+# * re-run with fix_ocr_errors = TRUE (https://github.com/ncss-tech/soilDB/issues/271)
+
 
 pb <- progress_bar$new(
   format = "  processing [:bar] :percent eta: :eta", 
@@ -56,7 +59,7 @@ for(i in sc[idx]) {
   # important notes:
   # * some series in SC may not exist here
   # * these files may contain data.frames of varying structure
-  osddf <- get_OSD(i, result = 'json', base_url = osd.path, fix_ocr_errors = TRUE)
+  osddf <- get_OSD(i, result = 'json', base_url = osd.path, fix_ocr_errors = FALSE)
   
   # typical pedon section, already broken into pieces
   hz <- osddf[['HORIZONS']][[1]]
