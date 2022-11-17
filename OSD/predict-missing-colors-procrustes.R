@@ -270,6 +270,18 @@ lines(d2m, type = 'arrows', len = 0.1, col = scales::alpha('green', 0.05))
 dev.off()
 
 
+## TODO: interpret this
+protest(X = z[keep.idx, moist.vars], Y = z[keep.idx, dry.vars], scale = TRUE)
+protest(X = z[keep.idx, dry.vars], Y = z[keep.idx, dry.vars], scale = TRUE)
+
+
+## what are the min. pieces from Procrustes model required to generate predictions?
+# * d2m$scale
+# * d2m$rotation
+# * d2m$translation
+
+
+
 
 ## TODO: move this to aqp misc/ code
 # 
@@ -305,6 +317,8 @@ p.m2d <- predict(m2d, z[, moist.vars])
 head(z)
 head(p.d2m)
 head(p.m2d)
+
+
 
 
 ## manual predictions
