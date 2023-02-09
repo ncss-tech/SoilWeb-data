@@ -134,6 +134,7 @@ pb$terminate()
 
 ## flatten
 # missing files: likely old / retired OSDs
+# 2023-02-09: 1686
 missing.file <- as.vector(do.call('c', missing.file))
 length(missing.file)
 
@@ -157,7 +158,7 @@ write.csv(hz, file = gzfile('parsed-data.csv.gz'), row.names = FALSE)
 write.csv(s, file = gzfile('parsed-site-data.csv.gz'), row.names = FALSE)
 
 ## re-make section fulltext table + INSERT statements
-# 11 seconds
+# 15 seconds
 system.time(.makeFullTextSectionsTable(fulltext.records))
 
 # gzip
