@@ -156,16 +156,18 @@ d <- as.dist(d)
 # use list. = TRUE to get GOF
 mds <- cmdscale(d)
 
-# rotate 270 degrees CCW
+# rotate 90 degrees CCW
 # to roughly follow Munsell color book page layout
 # column-order
 rot.mat <- matrix(
   c(0, 1,
     -1, 0),
-  byrow = FALSE, ncol = 2
+  byrow = TRUE, ncol = 2
 )
 
 # apply transformation
+# must right-multiply! 
+# thanks Keith
 mds <- mds %*% rot.mat
 
 # # too expensive, but possibly more flexible
@@ -194,7 +196,7 @@ arrows(x0 = mds.state$dry$X1, y0 = mds.state$dry$X2, x1 = mds.state$moist$X1, y1
 
 legend('bottomright', legend = c('dry', 'moist'), pch = 0:1, pt.cex = 3, horiz = TRUE, cex = 1.5, inset = c(0.01, 0.01), box.col = par('bg'))
 
-mtext(text = expression(~Delta*E['00']%->%PCoA%->%270*degree~CCW~rotation), side = 1, adj = 0, line = -2, cex = 1.5)
+mtext(text = expression(~Delta*E['00']%->%PCoA%->%90*degree~CCW~rotation), side = 1, adj = 0, line = -2, cex = 1.5)
 
 box()
 
@@ -270,6 +272,18 @@ lines(d2m, type = 'arrows', len = 0.1, col = scales::alpha('green', 0.05))
 dev.off()
 
 
+## TODO: interpret this
+protest(X = z[keep.idx, moist.vars], Y = z[keep.idx, dry.vars], scale = TRUE)
+protest(X = z[keep.idx, dry.vars], Y = z[keep.idx, dry.vars], scale = TRUE)
+
+
+## what are the min. pieces from Procrustes model required to generate predictions?
+# * d2m$scale
+# * d2m$rotation
+# * d2m$translation
+
+
+
 
 ## TODO: move this to aqp misc/ code
 # 
@@ -305,6 +319,8 @@ p.m2d <- predict(m2d, z[, moist.vars])
 head(z)
 head(p.d2m)
 head(p.m2d)
+
+
 
 
 ## manual predictions
