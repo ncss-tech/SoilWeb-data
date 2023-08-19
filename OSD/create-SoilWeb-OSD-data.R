@@ -181,6 +181,8 @@ gc(reset = TRUE)
 
 source('predict-missing-colors-procrustes.R')
 
+rm(list = ls(all.names = TRUE))
+gc(reset = TRUE)
 
 
 
