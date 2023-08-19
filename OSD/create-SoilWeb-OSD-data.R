@@ -135,6 +135,7 @@ pb$terminate()
 ## flatten
 # missing files: likely old / retired OSDs
 # 2023-02-09: 1686
+# 2023-08-18: 1724
 missing.file <- as.vector(do.call('c', missing.file))
 length(missing.file)
 

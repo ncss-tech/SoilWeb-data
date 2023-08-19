@@ -1,4 +1,4 @@
-## 2021-09-10
+## 2023-08-17
 ## D.E. Beaudette
 ## Export the current SC database from local NASIS DB
 ##
