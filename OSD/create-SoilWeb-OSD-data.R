@@ -143,6 +143,9 @@ length(missing.file)
 ## horizon data: may not share the same column-ordering
 hz <- as.data.frame(rbindlist(hz.data, fill = TRUE))
 
+## TODO: add eff_class
+stop()
+
 # re-order
 vars <- c("name", "top", "bottom", "dry_hue", "dry_value", "dry_chroma", 
           "moist_hue", "moist_value", "moist_chroma", "texture_class", 
