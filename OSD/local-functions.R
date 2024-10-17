@@ -114,7 +114,7 @@
 }
 
 
-# # convert HTML text to fulltext DB table record
+# # convert list of sections to fulltext DB table record
 .ConvertToFullTextRecord <- function(s, s.lines, tablename = 'osd.osd_fulltext') {
   # collapse to single chunk
   s.text <- paste(s.lines, collapse = '\n')
@@ -124,27 +124,4 @@
   res <- paste0('INSERT INTO ', tablename, " VALUES ($$", s, "$$,$$", s.text, "$$);\n")
   return(res)
 }
-
-
-
-
-
-#   # get rendered HTML->text and save to file
-#   # store gzip-compressd OSD for bulk INSERT
-#   res[['fulltext']] <- memCompress(.ConvertToFullTextRecord(i, i.lines), type='gzip')
-#
-#   ## previously:
-#   # cat(i.fulltext, file = 'fulltext-data.sql', append = TRUE)
-#
-#   # split data into sections for fulltext search, catch errors related to parsing sections
-#   i.sections <- try(.ConvertToFullTextRecord2(i, i.lines))
-#   if(class(i.sections) != 'try-error') {
-#
-#     # store gzip-compressed sections for bulk INSERT
-#     res[['sections']] <- memCompress(i.sections, type='gzip')
-#
-#     ## previously:
-#     # cat(i.sections, file = 'fulltext-section-data.sql', append = TRUE)
-
-
 
