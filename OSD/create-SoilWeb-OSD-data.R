@@ -48,7 +48,8 @@ pb <- progress_bar$new(
   total = length(sc[idx])
 )
 
-# ~ 6 minutes
+# ~ 6 minutes on GFE
+# ~ 4 minutes on 4-1
 # iteration over series names
 for(i in sc[idx]) {
 
@@ -138,19 +139,17 @@ pb$terminate()
 # 2023-08-18: 1724
 # 2023-10-01: 1739
 # 2024-04-24: 1730
+# 2024-10-17: 1827
 missing.file <- as.vector(do.call('c', missing.file))
 length(missing.file)
 
 ## horizon data: may not share the same column-ordering
 hz <- as.data.frame(rbindlist(hz.data, fill = TRUE))
 
-## TODO: add eff_class
-stop()
-
 # re-order
 vars <- c("name", "top", "bottom", "dry_hue", "dry_value", "dry_chroma", 
           "moist_hue", "moist_value", "moist_chroma", "texture_class", 
-          "cf_class", "pH", "pH_class", "distinctness", "topography", "narrative", 
+          "cf_class", "pH", "pH_class", "eff_class", "distinctness", "topography", "narrative", 
           "seriesname")
 
 hz <- hz[, vars]
@@ -164,7 +163,7 @@ write.csv(hz, file = gzfile('parsed-data.csv.gz'), row.names = FALSE)
 write.csv(s, file = gzfile('parsed-site-data.csv.gz'), row.names = FALSE)
 
 ## re-make section fulltext table + INSERT statements
-# 10 seconds
+# 2.3 seconds on 4-1
 system.time(.makeFullTextSectionsTable(fulltext.records))
 
 # gzip

@@ -8,4 +8,5 @@ OSD/parsed-site-data.csv.gz
 OSD/fulltext-section-data.sql.gz
 OSD/parsed-data-est-colors.csv.gz
 *.zip
+*.pdf
 WCS/ssurgo-data.gpkg
