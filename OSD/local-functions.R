@@ -23,7 +23,7 @@
 
 
 # # re-make sectioned fulltext table, containing an OSD per record
-.makeFullTextSectionsTable <- function(fullTextList, outputFile='fulltext-section-data.sql') {
+.makeFullTextSectionsTable <- function(fullTextList, outputFile = 'fulltext-section-data.sql') {
   
   # reset fulltext SQL file
   # need to adjust fields manually as we edit
@@ -92,16 +92,8 @@
 
 
 
-
-
-
-
-
-
-## TODO: this will require a different approach
-
 # # re-make entire fulltext table, containing an OSD per record
-.makeFullTextTable <- function(fullTextList, outputFile='fulltext-data.sql') {
+.makeFullTextTable <- function(fullTextList, outputFile = 'fulltext-data.sql') {
   # reset fulltext SQL file
   cat('DROP TABLE osd.osd_fulltext;\n', file = outputFile)
   cat('CREATE TABLE osd.osd_fulltext (series citext, fulltext text);\n',
@@ -123,7 +115,7 @@
 
 
 # # convert HTML text to fulltext DB table record
-.ConvertToFullTextRecord <- function(s, s.lines, tablename='osd.osd_fulltext') {
+.ConvertToFullTextRecord <- function(s, s.lines, tablename = 'osd.osd_fulltext') {
   # collapse to single chunk
   s.text <- paste(s.lines, collapse = '\n')
   # convert into INSERT statement

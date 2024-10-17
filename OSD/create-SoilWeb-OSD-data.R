@@ -35,8 +35,10 @@ hz.data <- list()
 site.data <- list()
 missing.file <- list()
 fulltext.records <- list()
+fulltext.all <- list()
 
 # section names we will be extracting for SoilWeb / NASIS
+# must match table definitions!
 section.names <- c("OVERVIEW", "TAXONOMIC.CLASS", "TYPICAL.PEDON", "TYPE.LOCATION", "RANGE.IN.CHARACTERISTICS", "COMPETING.SERIES", "GEOGRAPHIC.SETTING", "GEOGRAPHICALLY.ASSOCIATED.SOILS", "DRAINAGE.AND.PERMEABILITY", "USE.AND.VEGETATION", "DISTRIBUTION.AND.EXTENT", "REMARKS", "ORIGIN", "ADDITIONAL.DATA")
 
 
@@ -124,6 +126,12 @@ for(i in sc[idx]) {
     type = 'gzip'
   )
   
+  ## store entire OSD without section names for OSD-fulltext table
+  fulltext.all[[i]] <- memCompress(
+    .ConvertToFullTextRecord(s = i, s.lines = .narratives),
+    type = 'gzip'
+  )
+  
 }
 
 
@@ -164,11 +172,21 @@ write.csv(s, file = gzfile('parsed-site-data.csv.gz'), row.names = FALSE)
 
 ## re-make section fulltext table + INSERT statements
 # 2.3 seconds on 4-1
-system.time(.makeFullTextSectionsTable(fulltext.records))
+system.time(
+  .makeFullTextSectionsTable(fulltext.records)
+)
 
+## remake entire OSD full text table + INSERT statements
+# 2.3 seconds on 4-1
+system.time(
+  .makeFullTextTable(fulltext.all)
+)
+
+
+## TODO: no longer needed when running on 4-1
 # gzip
 R.utils::gzip('fulltext-section-data.sql', overwrite = TRUE)
-
+R.utils::gzip('fulltext-data.sql', overwrite = TRUE)
 
 
 ## TODO: finish eval / comparison of both methods

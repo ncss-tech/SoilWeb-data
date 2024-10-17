@@ -391,7 +391,7 @@ z$m.dry.o <- sprintf("%s %s/%s", z$dry_hue, z$dry_value, z$dry_chroma)
 z$m.moist.o <- sprintf("%s %s/%s", z$moist_hue, z$moist_value, z$moist_chroma)
 
 
-# m <- rgb2munsell(convert_colour(p.d2m, from = 'lab', to = 'rgb', white_from = 'd65', white_to = 'd65') / 255)
+# m <- col2Munsell(convert_colour(p.d2m, from = 'lab', to = 'rgb', white_from = 'd65', white_to = 'd65') / 255)
 # 
 # m$m <- sprintf("%s %s/%s", m$hue, m$value, m$chroma)
 # 
@@ -400,12 +400,12 @@ z$m.moist.o <- sprintf("%s %s/%s", z$moist_hue, z$moist_value, z$moist_chroma)
 
 ## eval a couple examples
 idx <- sample(1:nrow(z), size = 10, replace = FALSE)
-rgb2munsell(convert_colour(p.d2m[idx, ], from = 'lab', to = 'rgb', white_from = 'd65', white_to = 'd65') / 255)
+col2Munsell(convert_colour(p.d2m[idx, ], from = 'lab', to = 'rgb', white_from = 'd65', white_to = 'd65') / 255)
 
 z[idx, ]
 
 
-p.m <- rgb2munsell(convert_colour(p.d2m[idx, ], from = 'lab', to = 'rgb', white_from = 'd65', white_to = 'd65') / 255)
+p.m <- col2Munsell(convert_colour(p.d2m[idx, ], from = 'lab', to = 'rgb', white_from = 'd65', white_to = 'd65') / 255)
 
 # ~ 1000 random samples: 88% correct
 prop.table(table(p.m$hue == z$moist_hue[idx]))
