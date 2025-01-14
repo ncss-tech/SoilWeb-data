@@ -5,6 +5,7 @@
 
 library(soilDB)
 
+# refresh local NASIS
 sc <- get_soilseries_from_NASIS()
 
 # remove edit history
