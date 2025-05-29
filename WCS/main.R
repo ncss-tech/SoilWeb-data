@@ -1,3 +1,10 @@
+
+## re-evaluate using latest ideas in 
+# e:/gis_data/mukey-grids/
+# E:/gis_data/SSURGO-STATSGO-tabular
+
+
+
 ## Prepare mukey and derivative grids for SoilWeb WCS
 ## D.E. Beaudette
 ## 2024-01-11

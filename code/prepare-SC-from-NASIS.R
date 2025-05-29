@@ -8,6 +8,8 @@ library(soilDB)
 # refresh local NASIS
 sc <- get_soilseries_from_NASIS()
 
+nrow(sc)
+
 # remove edit history
 sc$soilseriesedithistory <- NULL
 

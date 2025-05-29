@@ -1,3 +1,9 @@
+
+# 2025-04-25
+# superceded by code in e:/gis_data/mukey-grids/
+stop()
+
+
 ## Create (experimental) STATSGO2 mukey grid (300m) for SoilWeb WCS
 ## D.E Beaudette
 ## 2024-01-11
