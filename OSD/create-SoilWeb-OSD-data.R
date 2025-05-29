@@ -2,7 +2,7 @@ library(aqp)
 library(soilDB)
 library(data.table)
 library(progress)
-library(R.utils)
+# library(R.utils)
 
 # special functions for OSD data preparation
 source('local-functions.R')
@@ -148,6 +148,7 @@ pb$terminate()
 # 2023-10-01: 1739
 # 2024-04-24: 1730
 # 2024-10-17: 1827
+# 2025-05-29: 1910
 missing.file <- as.vector(do.call('c', missing.file))
 length(missing.file)
 
@@ -185,8 +186,8 @@ system.time(
 
 ## TODO: no longer needed when running on 4-1
 # gzip
-R.utils::gzip('fulltext-section-data.sql', overwrite = TRUE)
-R.utils::gzip('fulltext-data.sql', overwrite = TRUE)
+# R.utils::gzip('fulltext-section-data.sql', overwrite = TRUE)
+# R.utils::gzip('fulltext-data.sql', overwrite = TRUE)
 
 
 ## TODO: finish eval / comparison of both methods
