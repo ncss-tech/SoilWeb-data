@@ -10,3 +10,5 @@ OSD/parsed-data-est-colors.csv.gz
 *.zip
 *.pdf
 WCS/ssurgo-data.gpkg
+OSD/fulltext-data.sql
+OSD/fulltext-section-data.sql

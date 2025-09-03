@@ -17,8 +17,6 @@ sc <- sc$soilseriesname
 
 ## TODO: double-check funky names like "O'BRIEN" and chars not [a-z]
 
-## TODO: add entire OSD -> fulltext data
-
 ## TODO: narratives in the JSON files have leading white space
 
 # this must point to a recent, working copy of the SKB repo
