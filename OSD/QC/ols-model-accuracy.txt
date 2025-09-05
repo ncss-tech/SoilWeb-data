@@ -4,22 +4,22 @@ ols(formula = moist_value ~ rcs(dry_value) + dry_chroma, data = x)
 
                   Model Likelihood    Discrimination    
                         Ratio Test           Indexes    
-Obs   79687    LR chi2    84712.47    R2       0.655    
-sigma0.6378    d.f.              4    R2 adj   0.655    
-d.f.  79682    Pr(> chi2)   0.0000    g        0.977    
+Obs   79750    LR chi2    84921.54    R2       0.655    
+sigma0.6368    d.f.              4    R2 adj   0.655    
+d.f.  79745    Pr(> chi2)   0.0000    g        0.977    
 
 Residuals
 
      Min       1Q   Median       3Q      Max 
--3.90204 -0.31516 -0.05529  0.41840  5.43242 
+-3.90081 -0.31501 -0.05474  0.41779  5.43468 
 
 
             Coef    S.E.   t     Pr(>|t|)
-Intercept    0.5269 0.0251 20.99 <0.0001 
-dry_value    0.4877 0.0059 82.50 <0.0001 
-dry_value'   0.3474 0.0210 16.51 <0.0001 
-dry_value'' -0.2190 0.0621 -3.53 0.0004  
-dry_chroma   0.1444 0.0019 77.24 <0.0001 
+Intercept    0.5186 0.0251 20.69 <0.0001 
+dry_value    0.4894 0.0059 82.92 <0.0001 
+dry_value'   0.3425 0.0210 16.30 <0.0001 
+dry_value'' -0.2071 0.0620 -3.34 0.0008  
+dry_chroma   0.1446 0.0019 77.47 <0.0001 
 
 Linear Regression Model
 
@@ -27,23 +27,23 @@ ols(formula = moist_chroma ~ rcs(dry_chroma) + dry_value, data = x)
 
                   Model Likelihood    Discrimination    
                         Ratio Test           Indexes    
-Obs   79687    LR chi2    97663.09    R2       0.706    
-sigma0.6700    d.f.              5    R2 adj   0.706    
-d.f.  79681    Pr(> chi2)   0.0000    g        1.156    
+Obs   79750    LR chi2    98274.07    R2       0.708    
+sigma0.6673    d.f.              5    R2 adj   0.708    
+d.f.  79744    Pr(> chi2)   0.0000    g        1.157    
 
 Residuals
 
      Min       1Q   Median       3Q      Max 
--5.85416 -0.29953 -0.06858  0.20908  6.88665 
+-5.86561 -0.29917 -0.06961  0.20876  6.67512 
 
 
               Coef    S.E.   t      Pr(>|t|)
-Intercept     -0.5152 0.0197 -26.09 <0.0001 
-dry_chroma     0.7650 0.0112  68.23 <0.0001 
-dry_chroma'   -0.2648 0.0892  -2.97 0.0030  
-dry_chroma''   1.9542 0.2594   7.53 <0.0001 
-dry_chroma''' -4.3186 0.3023 -14.28 <0.0001 
-dry_value      0.2159 0.0021 103.36 <0.0001 
+Intercept     -0.5231 0.0197 -26.57 <0.0001 
+dry_chroma     0.7698 0.0112  68.86 <0.0001 
+dry_chroma'   -0.2787 0.0889  -3.14 0.0017  
+dry_chroma''   1.9669 0.2584   7.61 <0.0001 
+dry_chroma''' -4.2865 0.3010 -14.24 <0.0001 
+dry_value      0.2156 0.0021 103.68 <0.0001 
 
 Linear Regression Model
 
@@ -51,22 +51,22 @@ ols(formula = dry_value ~ rcs(moist_value) + moist_chroma, data = x)
 
                   Model Likelihood    Discrimination    
                         Ratio Test           Indexes    
-Obs   79687    LR chi2    77895.33    R2       0.624    
-sigma0.7042    d.f.              4    R2 adj   0.624    
-d.f.  79682    Pr(> chi2)   0.0000    g        0.996    
+Obs   79750    LR chi2    78080.64    R2       0.624    
+sigma0.7035    d.f.              4    R2 adj   0.624    
+d.f.  79745    Pr(> chi2)   0.0000    g        0.996    
 
 Residuals
 
     Min      1Q  Median      3Q     Max 
--5.3884 -0.6224  0.2776  0.3776  4.2534 
+-5.3929 -0.6223  0.2780  0.3777  4.2536 
 
 
               Coef    S.E.   t      Pr(>|t|)
-Intercept      1.7415 0.0320  54.42 <0.0001 
-moist_value    1.0186 0.0126  81.06 <0.0001 
-moist_value'  -0.1716 0.0520  -3.30 0.0010  
-moist_value'' -0.1825 0.1246  -1.46 0.1432  
-moist_chroma  -0.0322 0.0022 -14.37 <0.0001 
+Intercept      1.7414 0.0320  54.47 <0.0001 
+moist_value    1.0188 0.0126  81.16 <0.0001 
+moist_value'  -0.1700 0.0519  -3.27 0.0011  
+moist_value'' -0.1849 0.1245  -1.49 0.1375  
+moist_chroma  -0.0326 0.0022 -14.57 <0.0001 
 
 Linear Regression Model
 
@@ -74,21 +74,21 @@ ols(formula = dry_chroma ~ rcs(moist_chroma) + moist_value, data = x)
 
                   Model Likelihood    Discrimination    
                         Ratio Test           Indexes    
-Obs   79687    LR chi2    89506.99    R2       0.675    
-sigma0.7105    d.f.              5    R2 adj   0.675    
-d.f.  79681    Pr(> chi2)   0.0000    g        1.126    
+Obs   79750    LR chi2    90073.25    R2       0.677    
+sigma0.7078    d.f.              5    R2 adj   0.677    
+d.f.  79744    Pr(> chi2)   0.0000    g        1.126    
 
 Residuals
 
       Min        1Q    Median        3Q       Max 
--5.623237 -0.220498 -0.009517  0.152696  7.291331 
+-5.641099 -0.220404 -0.008893  0.152715  7.295301 
 
 
                 Coef    S.E.   t      Pr(>|t|)
-Intercept        0.7322 0.0191  38.40 <0.0001 
-moist_chroma     0.9330 0.0116  80.28 <0.0001 
-moist_chroma'   -0.4727 0.0934  -5.06 <0.0001 
-moist_chroma''   1.6330 0.2734   5.97 <0.0001 
-moist_chroma''' -2.6957 0.3209  -8.40 <0.0001 
-moist_value     -0.1196 0.0025 -48.09 <0.0001 
+Intercept        0.7275 0.0190  38.27 <0.0001 
+moist_chroma     0.9358 0.0116  80.75 <0.0001 
+moist_chroma'   -0.4810 0.0930  -5.17 <0.0001 
+moist_chroma''   1.6349 0.2724   6.00 <0.0001 
+moist_chroma''' -2.6514 0.3197  -8.29 <0.0001 
+moist_value     -0.1198 0.0025 -48.37 <0.0001 
 

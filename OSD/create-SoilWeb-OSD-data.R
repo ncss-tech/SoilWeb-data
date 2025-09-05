@@ -140,13 +140,14 @@ pb$terminate()
 
 
 ## flatten
-# missing files: likely old / retired OSDs
+# missing files: likely old / retired OSDs / OSDs with previously rude names
 # 2023-02-09: 1686
 # 2023-08-18: 1724
 # 2023-10-01: 1739
 # 2024-04-24: 1730
 # 2024-10-17: 1827
 # 2025-05-29: 1910
+# 2025-09-05: 1827
 missing.file <- as.vector(do.call('c', missing.file))
 length(missing.file)
 
@@ -182,13 +183,12 @@ system.time(
 )
 
 
-## TODO: no longer needed when running on 4-1
-# gzip
-# R.utils::gzip('fulltext-section-data.sql', overwrite = TRUE)
-# R.utils::gzip('fulltext-data.sql', overwrite = TRUE)
 
-
-## TODO: finish eval / comparison of both methods
+## TODO: 
+# * move development of these models to soil-color repo
+# * split organic / mineral models
+# * use methods from aqp vs. local 
+# * finish eval / comparison of both methods
 
 rm(list = ls(all.names = TRUE))
 gc(reset = TRUE)
