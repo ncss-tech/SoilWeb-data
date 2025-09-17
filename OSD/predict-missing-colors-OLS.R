@@ -28,7 +28,7 @@ library(tactile)
 data("munsell")
 
 # from OSDs
-d <- read.csv('parsed-data.csv.gz', stringsAsFactors=FALSE)
+d <- read.csv('parsed-data.csv.gz', stringsAsFactors = FALSE)
 
 # check initial conditions
 str(d)
@@ -381,78 +381,103 @@ depths(x.o.d) <- seriesname ~ top + bottom
 depths(x.o.m) <- seriesname ~ top + bottom
 
 # aggregate colors
-a.d <- aggregateColor(x.o.d, groups='genhz', col='dry_color', k=10)
-a.m <- aggregateColor(x.o.d, groups='genhz', col='moist_color', k=10)
+a.d <- aggregateColor(x.o.d, groups = 'genhz', col = 'dry_color', k = 10)
+a.m <- aggregateColor(x.o.d, groups = 'genhz', col = 'moist_color', k = 10)
 
 
-png(file='figures/O-hz-colors-dry.png', width = 900, height=550, res=90)
-aggregateColorPlot(a.d, main='Dry Colors')
+png(file = 'figures/O-hz-colors-dry.png', width = 900, height = 550, res = 90)
+aggregateColorPlot(a.d, main = 'Dry Colors')
 dev.off()
 
 
-png(file='figures/O-hz-colors-moist.png', width = 900, height=550, res=90)
-aggregateColorPlot(a.m, main='Moist Colors')
+png(file='figures/O-hz-colors-moist.png', width = 900, height = 550, res = 90)
+aggregateColorPlot(a.m, main = 'Moist Colors')
 dev.off()
 
-knitr::kable(a.d$aggregate.data, row.names = FALSE)
-knitr::kable(a.m$aggregate.data, row.names = FALSE)
+
+## reference spectra are missing for neutral chips, 'estimated' mixtures aren't reliable
+# knitr::kable(a.d$aggregate.data, row.names = FALSE)
+# knitr::kable(a.m$aggregate.data, row.names = FALSE)
 
 
 ## find O horizons that are missing colors, and use these ones
+# -> most frequent colors
+
+# ! these values have to be manually updated from the above analysis
+Oi <- list(
+  dry = list(hue = '7.5YR', value = 4, chroma = 2),
+  moist = list(hue = '7.5YR', value = 2.5, chroma = 1)
+)
+
+Oe <- list(
+  dry = list(hue = '7.5YR', value = 4, chroma = 2),
+  moist = list(hue = '7.5YR', value = 2, chroma = 1)
+)
+
+Oa <- list(
+  dry = list(hue = '5YR', value = 4, chroma = 1),
+  moist = list(hue = '7.5YR', value = 2, chroma = 1)
+)
+
+Ostar <- list(
+  dry = list(hue = '10YR', value = 4, chroma = 1),
+  moist = list(hue = '10YR', value = 2, chroma = 1)
+)
+
 
 # Oi / dry
 idx <- which(grepl('Oi', d$name) & is.na(d$dry_hue))
-d$dry_hue[idx] <- '7.5YR'
-d$dry_value[idx] <- 4
-d$dry_chroma[idx] <- 2
+d$dry_hue[idx] <- Oi$dry$hue
+d$dry_value[idx] <- Oi$dry$value
+d$dry_chroma[idx] <- Oi$dry$chroma
 
 # Oi / moist
 idx <- which(grepl('Oi', d$name) & is.na(d$moist_hue))
-d$moist_hue[idx] <- '5YR'
-d$moist_value[idx] <- 2
-d$moist_chroma[idx] <- 2
+d$moist_hue[idx] <- Oi$moist$hue
+d$moist_value[idx] <- Oi$moist$value
+d$moist_chroma[idx] <- Oi$moist$chroma
 
 # Oe / dry
 idx <- which(grepl('Oe', d$name) & is.na(d$dry_hue))
-d$dry_hue[idx] <- '7.5YR'
-d$dry_value[idx] <- 4
-d$dry_chroma[idx] <- 2
+d$dry_hue[idx] <- Oe$dry$hue
+d$dry_value[idx] <- Oe$dry$value
+d$dry_chroma[idx] <- Oe$dry$chroma
 
 # Oe / moist
 idx <- which(grepl('Oe', d$name) & is.na(d$moist_hue))
-d$moist_hue[idx] <- '7.5YR'
-d$moist_value[idx] <- 2
-d$moist_chroma[idx] <- 1
+d$moist_hue[idx] <- Oe$moist$hue
+d$moist_value[idx] <- Oe$moist$value
+d$moist_chroma[idx] <- Oe$moist$chroma
 
 # Oa / dry
 idx <- which(grepl('Oa', d$name) & is.na(d$dry_hue))
-d$dry_hue[idx] <- '7.5YR'
-d$dry_value[idx] <- 4
-d$dry_chroma[idx] <- 1
+d$dry_hue[idx] <- Oa$dry$hue
+d$dry_value[idx] <- Oa$dry$value
+d$dry_chroma[idx] <- Oa$dry$chroma
 
 # Oa / moist
 idx <- which(grepl('Oa', d$name) & is.na(d$moist_hue))
-d$moist_hue[idx] <- '7.5YR'
-d$moist_value[idx] <- 2
-d$moist_chroma[idx] <- 1
+d$moist_hue[idx] <- Oa$moist$hue
+d$moist_value[idx] <- Oa$moist$value
+d$moist_chroma[idx] <- Oa$moist$chroma
 
 # everything else, dry
 idx <- which(grepl('O', d$name) & is.na(d$dry_hue))
-d$dry_hue[idx] <- '10YR'
-d$dry_value[idx] <- 4
-d$dry_chroma[idx] <- 1
+d$dry_hue[idx] <- Ostar$dry$hue
+d$dry_value[idx] <- Ostar$dry$value
+d$dry_chroma[idx] <- Ostar$dry$chroma
 
 # everything else, moist
 idx <- which(grepl('O', d$name) & is.na(d$moist_hue))
-d$moist_hue[idx] <- '10YR'
-d$moist_value[idx] <- 2
-d$moist_chroma[idx] <- 1
+d$moist_hue[idx] <- Ostar$moist$hue
+d$moist_value[idx] <- Ostar$moist$value
+d$moist_chroma[idx] <- Ostar$moist$chroma
 
 
 ##
 ## extract same series and compare original vs. filled colors
 ##
-x <- subset(d, subset = seriesname %in% c('AMADOR', 'DRUMMER', 'CECIL', 'REDDING', 'AVA', 'MIAMI', 'FRISCO'))
+x <- subset(d, subset = seriesname %in% c('AMADOR', 'DRUMMER', 'CECIL', 'REDDING', 'AVA', 'MIAMI', 'FRISCO', 'AIMELIIK'))
 x$seriesname <- paste0(x$seriesname, '-filled')
 depths(x) <- seriesname ~ top + bottom
 x$dry_soil_color <- munsell2rgb(x$dry_hue, x$dry_value, x$dry_chroma)
@@ -476,9 +501,9 @@ g$original.name <- gsub('-filled', '', g$original.name)
 
 png(file='figures/dry-original-vs-filled-example.png', width = 900, height=800, res=90)
 
-par(mar=c(1,1,3,1), mfrow=c(2,1))
-groupedProfilePlot(g, name='', groups='original.name', color='dry_soil_color', id.style='side', label='group') ; title('Dry Colors')
-groupedProfilePlot(g, name='', groups='original.name', color='moist_soil_color', id.style='side', label='group') ; title('Moist Colors')
+par(mar = c(1,1,3,1), mfrow = c(2,1))
+groupedProfilePlot(g, name = '', groups = 'original.name', color = 'dry_soil_color', id.style = 'side', label = 'group', max.depth = 150) ; title('Dry Colors')
+groupedProfilePlot(g, name = '', groups = 'original.name', color = 'moist_soil_color', id.style = 'side', label = 'group', max.depth = 150) ; title('Moist Colors')
 
 dev.off()
 
@@ -487,23 +512,23 @@ dev.off()
 
 
 
-png(file='figures/original-dry-vs-moist.png', width = 900, height=800, res=90)
+png(file = 'figures/original-dry-vs-moist.png', width = 900, height = 800, res = 90)
 
-par(mar=c(2,1,3,1), mfrow=c(2,1))
-plot(x.original, color='dry_soil_color', max.depth=165, name='')
+par(mar = c(2,1,3,1), mfrow = c(2,1))
+plotSPC(x.original, color = 'dry_soil_color', max.depth = 165, name = '')
 title('Original Dry Colors')
-plot(x.original, color='moist_soil_color', max.depth=165, name='')
+plotSPC(x.original, color = 'moist_soil_color', max.depth = 165, name = '')
 title('Original Moist Colors')
 
 dev.off()
 
 
-png(file='figures/filled-dry-vs-moist.png', width = 900, height=800, res=90)
+png(file = 'figures/filled-dry-vs-moist.png', width = 900, height = 800, res = 90)
 
 par(mar=c(2,1,3,1), mfrow=c(2,1))
-plot(x, color='dry_soil_color', max.depth=165, name='')
+plot(x, color = 'dry_soil_color', max.depth = 165, name = '')
 title('Filled Dry Colors')
-plot(x, color='moist_soil_color', max.depth=165, name='')
+plot(x, color = 'moist_soil_color', max.depth = 165, name = '')
 title('Filled Moist Colors')
 
 dev.off()
