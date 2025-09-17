@@ -2,6 +2,9 @@
 ## TODO: is this approach as accurate as 4x OLS models with RCS terms? 
 ##  ---> likely more accurate
 ##
+
+## TODO: split organic / mineral soil colors -> 4 models
+
  
 
 library(vegan)
