@@ -19,10 +19,24 @@ write.csv(sc, file = gzfile('files/SC-database.csv.gz'), row.names = FALSE)
 
 ## bugs and questions
 
-# # 2025-11-30: there are some AK soil series missing suborder labels
+
+#
+# 2025-11-30: there are some AK soil series missing suborder labels
+#   -> FIXED in SC/OSD Maintenance Tool (DEB)
+#
 # z <- sc[which(sc$soilseriesstatus == 'established' & is.na(sc$taxsuborder)), ]
 # 
 # knitr::kable(
-#   z[, c('mlraoffice', 'soilseriesname', 'taxorder', 'taxsuborder', 'taxgrtgroup', 'taxsubgrp')],
+#   z[, c('mlraoffice', 'soilseriesname', 'taxorder', 'taxsuborder', 'taxgrtgroup', 'taxsubgrp', 'taxclname')],
 #   row.names = FALSE
 # )
+# 
+# # for reference
+# knitr::kable(
+#   sc[1:5, c('mlraoffice', 'soilseriesname', 'taxorder', 'taxsuborder', 'taxgrtgroup', 'taxsubgrp', 'taxclname')],
+#   row.names = FALSE
+# )
+ 
+# 
+# o <- fetchOSD(z$soilseriesname, extended = TRUE)
+# o$mlra
