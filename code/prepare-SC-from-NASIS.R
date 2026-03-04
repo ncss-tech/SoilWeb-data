@@ -9,6 +9,7 @@ library(soilDB)
 sc <- get_soilseries_from_NASIS()
 
 # 2025-12-01: 26573
+# 2026-03-03: 26576
 nrow(sc)
 
 # remove edit history
