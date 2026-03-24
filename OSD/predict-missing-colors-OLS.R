@@ -553,7 +553,7 @@ d$dry_color_estimated <- as.character(d$dry_color_estimated)
 d$moist_color_estimated <- as.character(d$moist_color_estimated)
 
 ## save results
-write.csv(d, file = gzfile('parsed-data-est-colors.csv.gz'), row.names =FALSE)
+write.csv(d, file = gzfile('old-parsed-data-est-colors.csv.gz'), row.names =FALSE)
 
 
 

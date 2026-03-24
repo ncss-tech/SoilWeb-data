@@ -1,6 +1,6 @@
-##
-##
-##
+## Estimate missing moist/dry colors for O horizons and mineral horizons
+## 2026-03-23
+## D.E. Beaudette
 
 
 ## TODO:

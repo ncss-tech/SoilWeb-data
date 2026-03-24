@@ -1,12 +1,15 @@
 
 # old method: predict-missing-colors-OLS.R
-x <- read.csv('parsed-data-est-colors.csv.gz')
+x <- read.csv('old-parsed-data-est-colors.csv.gz')
 
 # new method: predict-missing-colors.R
-y <- read.csv('new-parsed-data-est-colors.csv.gz')
+y <- read.csv('parsed-data-est-colors.csv.gz')
 
 str(x)
 str(y)
+
+
+nrow(x) == nrow(y)
 
 
 table(x$dry_color_estimated)
@@ -36,4 +39,12 @@ table(y$moist_value)
 table(old = x$moist_hue, new = y$moist_hue)
 table(old = x$moist_value, new = y$moist_value)
 table(old = x$moist_chroma, new = y$moist_chroma)
+
+
+x[x$seriesname == 'CECIL', 1:9, ]
+y[y$seriesname == 'CECIL', 1:9, ]
+
+x[x$seriesname == 'DRUMMER', 1:9, ]
+y[y$seriesname == 'DRUMMER', 1:9, ]
+
 

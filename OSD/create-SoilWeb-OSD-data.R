@@ -185,17 +185,16 @@ system.time(
 
 
 
-## TODO: 
-# * move development of these models to soil-color repo
-# * split organic / mineral models
-# * use methods from aqp vs. local 
-# * finish eval / comparison of both methods
-
 rm(list = ls(all.names = TRUE))
 gc(reset = TRUE)
 
+
 # latest version
-source('predict-missing-colors.R')
+# GFE: ~ 18 seconds
+system.time(
+  source('predict-missing-colors.R')
+)
+
 
 
 ## archive these
