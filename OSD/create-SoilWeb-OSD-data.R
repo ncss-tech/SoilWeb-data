@@ -148,6 +148,7 @@ pb$terminate()
 # 2024-10-17: 1827
 # 2025-05-29: 1910
 # 2025-09-05: 1827
+# 2026-03-05: 1813
 missing.file <- as.vector(do.call('c', missing.file))
 length(missing.file)
 
@@ -193,17 +194,21 @@ system.time(
 rm(list = ls(all.names = TRUE))
 gc(reset = TRUE)
 
+# latest version
+source('predict-missing-colors.R')
+
+
+## archive these
+
 ## fill missing colors
-source('predict-missing-colors-OLS.R')
+# source('predict-missing-colors-OLS.R')
 
 
-rm(list = ls(all.names = TRUE))
-gc(reset = TRUE)
+# rm(list = ls(all.names = TRUE))
+# gc(reset = TRUE)
 
-source('predict-missing-colors-procrustes.R')
+# source('predict-missing-colors-procrustes.R')
 
-rm(list = ls(all.names = TRUE))
-gc(reset = TRUE)
 
 
 
