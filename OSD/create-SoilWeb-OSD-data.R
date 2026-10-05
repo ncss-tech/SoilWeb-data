@@ -149,6 +149,7 @@ pb$terminate()
 # 2025-05-29: 1910
 # 2025-09-05: 1827
 # 2026-03-05: 1813
+# 2026-10-05: 1814
 missing.file <- as.vector(do.call('c', missing.file))
 length(missing.file)
 
@@ -190,7 +191,8 @@ gc(reset = TRUE)
 
 
 # latest version
-# GFE: ~ 18 seconds
+# GFE: 18 seconds
+# 4-1: 13 seconds
 system.time(
   source('predict-missing-colors.R')
 )
