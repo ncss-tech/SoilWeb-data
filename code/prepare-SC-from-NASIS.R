@@ -11,6 +11,7 @@ sc <- get_soilseries_from_NASIS()
 # 2025-12-01: 26573
 # 2026-03-03: 26576
 # 2026-05-11: 26610
+# 2026-10-05: 26667
 nrow(sc)
 
 # remove edit history
